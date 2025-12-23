@@ -9,19 +9,28 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-<nav class="navbar">
-    <a href="index.html">BERANDA</a>
-    <a href="desaKedungwuluhLor/index.html">PETA DESA</a>
-    <a href="kecPatikraja/index.html">PETA KECAMATAN</a>
-    <a href="about-me.html">TENTANG SAYA</a>
-</nav>
+    <!-- Navbar Responsif -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span><i class="fas fa-map-marked-alt"></i> Patikraja</span>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+            <a href="index.html">BERANDA</a>
+            <a href="desaKedungwuluhLor/index.html">PETA DESA</a>
+            <a href="kecPatikraja/index.html">PETA KECAMATAN</a>
+            <a href="about-me.html">TENTANG SAYA</a>
+        </div>
+    </nav>
 
-<!-- HERO BANNER DENGAN FOTO BALAI DESA -->
+    <!-- HERO BANNER -->
+  <!-- HERO BANNER DENGAN FOTO LANSKAP -->
 <section class="hero-banner">
     <div class="hero-overlay">
         <div class="hero-content">
-            <i class="fas fa-map-marker-alt" style="font-size: 40px; color: #ff5722; margin-bottom: 15px;"></i>
+            <i class="fas fa-location-dot" style="font-size: 36px; color: #ffcc66; margin-bottom: 12px;"></i>
             <h1>Kecamatan Patikraja</h1>
             <h2>Kabupaten Banyumas, Jawa Tengah</h2>
             <p class="tagline">"Jantung Penghubung Selatan Jawa"</p>
@@ -33,7 +42,9 @@
     <section class="info-section">
         <div class="container">
             <div class="info-content">
-                <h2>🗺️ Tentang Kecamatan Patikraja</h2>
+                <h2><i class="fas fa-map" style="color: #0056b3; margin-right: 8px;"></i>
+                    🗺️ Tentang Kecamatan Patikraja
+                </h2>
                 <p>
                     Wilayah strategis di jantung Kabupaten Banyumas yang menjadi penghubung utama 
                     antara Purwokerto dan jalur nasional selatan Jawa. 
@@ -51,24 +62,12 @@
                     <span>Terhubung langsung dengan Jalur Pantura Selatan & Bandara Jenderal Besar Soedirman.</span>
                 </div>
             </div>
-           
             <div class="info-image">
-    <img 
-        src="assets/images/Logo Provinsi Jawa Tengah.jpeg" 
-        alt="Logo Provinsi Jawa Tengah" 
-        loading="lazy"
-        style="
-            width: 100%;
-            max-width: 280px;
-            height: auto;
-            object-fit: contain;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            background: #ffffff;
-            padding: 20px;
-        ">
-</div>
-
+                <img 
+                    src="assets/images/Balai_Desa_Patikraja.jpg" 
+                    alt="Logo Provinsi Jawa Tengah" 
+                    loading="lazy">
+            </div>
         </div>
     </section>
 
@@ -77,19 +76,19 @@
         <div class="service-column">
             <h3>LAYANAN</h3>
             <div class="service-item" onclick="window.location.href='desaKedungwuluhLor/index.html'">
-                <i class="fas fa-globe-americas"></i>
+                <i class="fas fa-globe-americas" aria-hidden="true"></i>
                 <span>Peta Desa</span>
             </div>
             <div class="service-item" onclick="window.location.href='kecPatikraja/index.html'">
-                <i class="fas fa-map-pin"></i>
+                <i class="fas fa-map-pin" aria-hidden="true"></i>
                 <span>Peta Kecamatan</span>
             </div>
         </div>
         <div class="service-column">
             <h3>INFORMASI</h3>
-            <div class="service-item" onclick="window.location.href='about.html'">
-                 <i class="fas fa-user"></i>
-                 <span>Tentang Desa</span>
+            <div class="service-item" onclick="window.location.href='about-me.html'">
+                <i class="fas fa-user" aria-hidden="true"></i>
+                <span>Tentang Saya</span>
             </div>
         </div>
     </div>
@@ -101,20 +100,19 @@
             <p class="cta-subtitle">Peta interaktif ini menjadi dasar perencanaan dan pengembangan desa yang transparan dan partisipatif.</p>
             <div class="cta-buttons">
                 <button class="btn-primary" onclick="window.location.href='desaKedungwuluhLor/index.html'">
-                    <i class="fas fa-map-marked-alt"></i> Buka Peta Desa
+                    <i class="fas fa-map-marked-alt" aria-hidden="true"></i> Buka Peta Desa
                 </button>
                 <button class="btn-outline" onclick="window.location.href='kecPatikraja/index.html'">
-                    <i class="fas fa-globe-asia"></i> Buka Peta Kecamatan
+                    <i class="fas fa-globe-asia" aria-hidden="true"></i> Buka Peta Kecamatan
                 </button>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>© 2025 Pemerintah Desa Kedungwuluh Lor</p>
+        <p>© 2025 Pemerintah Desa Kedungwuluh Lor — Universitas AMIKOM Purwokerto</p>
     </footer>
 
     <script src="js/main.js"></script>
-
 </body>
 </html>
