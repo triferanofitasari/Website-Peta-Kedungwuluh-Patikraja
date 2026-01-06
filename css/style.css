@@ -13,306 +13,213 @@ body {
     min-height: 100vh;
 }
 
-/* Navbar Responsif */
+/* Navbar Biru */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #0056b3;
     padding: 12px 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    position: relative;
-    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    z-index: 1000;
+    top:0;
     width: 100%;
 }
 
-.nav-logo span {
-    font-weight: bold;
-    color: #0056b3;
-    font-size: 1.3rem;
+.nav-brand {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 }
 
-.hamburger {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #0056b3;
-    cursor: pointer;
-    display: none;
+/* Navbar saat discroll — opsional tapi disarankan */
+.navbar.scrolled {
+    padding: 8px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    background-color: #004a99; /* sedikit lebih gelap saat discroll */
+}
+
+.navbar.scrolled .logo {
+    width: 40px;
+    height: 40px;
+}
+
+.navbar.scrolled .brand-text h1 {
+    font-size: 1.0rem;
+}
+
+.navbar.scrolled .brand-text p {
+    font-size: 0.75rem;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #fff;
+}
+
+.brand-text h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.brand-text p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.9);
+    margin: 0;
 }
 
 .nav-menu {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
 }
 
-.nav-menu a {
-    text-decoration: none;
-    color: #0056b3;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 20px;
+.nav-btn {
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.nav-menu a:hover {
-    background-color: #e6f2ff;
-    color: #0056b3;
-    transform: translateY(-2px);
-}
-
-/* Hero Banner */
-/* HERO BANNER DENGAN FOTO LANSKAP */
-.hero-banner {
-    height: 400px;
-    background: url('assets/images/Balai_Desa_Patikraja.jpg') no-repeat center center / cover;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
+    gap: 5px;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-1px);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-width: 180px;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f5f5f5;
+}
+
+/* HERO FULL — Perbaikan: path, overlay, teks putih */
+.hero-full {
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/images/tugu-rujak-polo.jpg') no-repeat center center / cover;
+    background-position: center 30%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     position: relative;
     overflow: hidden;
 }
 
-.hero-banner::before {
+.hero-full::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(70, 70, 70, 0.7); /* Abaikan jika ingin tanpa overlay */
+    /* 🔸 Overlay lebih transparan → opacity turun dari 0.7 ke 0.5 */
+    background: rgba(10, 40, 80, 0.5); /* ← lebih terang, gambar lebih terlihat */
     z-index: 1;
 }
 
 .hero-overlay {
     position: relative;
     z-index: 2;
-    text-align: center;
-    padding: 0 20px;
+    color: white; /* ✅ teks putih */
     max-width: 800px;
+    padding: 0 20px;
 }
 
-.hero-content i {
-    font-size: 36px;
-    color: #ffcc66;
-    margin-bottom: 12px;
-    display: block;
+.hero-overlay h1,
+.hero-overlay .tagline,
+.hero-overlay .hero-buttons .btn-primary,
+.hero-overlay .hero-buttons .btn-outline {
+    color: white; /* pastikan semua teks & border tombol tetap putih */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.hero-content h1 {
-    font-size: clamp(2rem, 6vw, 3.2rem);
+.hero-overlay h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: bold;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     margin-bottom: 10px;
     letter-spacing: 0.5px;
 }
 
-.hero-content h2 {
-    font-size: clamp(1.2rem, 4vw, 1.6rem);
-    color: #ffffff;
-    font-weight: 500;
-    opacity: 0.9;
-    margin-bottom: 15px;
-}
-
-.hero-content .tagline {
-    font-size: clamp(1rem, 3.5vw, 1.3rem);
-    font-style: italic;
-    color: #ffcc66;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-
-/* Info Section */
-.info-section {
-    background-color: #f8f9fa;
-    padding: 60px 20px;
-    margin: 40px 0;
-}
-
-.info-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-}
-
-.info-content {
-    flex: 1 1 60%;
-    min-width: 300px;
-}
-
-.info-content h2 {
-    color: #0056b3;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.info-content p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 15px;
-    color: #34495e;
-}
-
-.highlight-box {
-    display: flex;
-    align-items: flex-start;
-    background-color: #e6f2ff;
-    padding: 15px 20px;
-    border-radius: 12px;
-    margin: 15px 0;
-    transition: all 0.3s;
-}
-
-.highlight-box:hover {
-    background-color: #d4e6f9;
-    transform: translateX(5px);
-}
-
-.highlight-box i {
-    font-size: 24px;
-    color: #0056b3;
-    margin-right: 15px;
-    margin-top: 4px;
-    flex-shrink: 0;
-}
-
-.info-image {
-    flex: 1 1 300px;
-    text-align: center;
-}
-
-.info-image img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    background: #ffffff;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Services Container */
-.services-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 30px auto;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: space-between;
-    border: 1px solid #bdc3c7;
-}
-
-.service-column {
-    flex: 1 1 45%;
-    min-width: 300px;
-}
-
-.service-column h3 {
-    margin-bottom: 20px;
-    color: #0056b3;
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-.service-item {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    background-color: #f8f9fa;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-left: 4px solid #0056b3;
-}
-
-.service-item:hover {
-    background-color: #e6f2ff;
-    transform: translateX(5px);
-    border-left: 4px solid #ff9900;
-}
-
-.service-item i {
-    font-size: 26px;
-    margin-right: 15px;
-    color: #0056b3;
-    min-width: 36px;
-}
-
-.service-item span {
-    font-size: 1.1rem;
-    color: #2c3e50;
-    font-weight: 500;
-}
-
-/* CTA Section */
-.cta-section {
-    background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.cta-section .container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.cta-section h3 {
-    font-size: clamp(1.6rem, 4.5vw, 2rem);
-    margin-bottom: 15px;
-}
-
-.cta-section .cta-subtitle {
-    font-size: clamp(1rem, 3.8vw, 1.2rem);
-    opacity: 0.9;
-    margin-bottom: 30px;
+.hero-overlay .tagline {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    opacity: 0.95; /* tetap sedikit transparan, tapi karena warna white → tetap jelas */
+    margin-bottom: 25px;
+    font-weight: 400;
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 25px;
 }
 
-.cta-buttons {
+.hero-buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .btn-primary,
 .btn-outline {
-    padding: 14px 32px;
+    padding: 12px 24px;
     border: none;
     border-radius: 30px;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 10px;
-    min-width: 220px;
 }
 
 .btn-primary {
@@ -338,7 +245,156 @@ body {
     transform: translateY(-3px);
 }
 
-/* Footer */
+/* Layanan Kecamatan Section */
+.services-section {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+    margin: 40px 0;
+}
+
+/* Judul & Subtitle — TEPAT DI TENGAH */
+.section-title {
+    font-size: 2.2rem;
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container hanya untuk kartu layanan */
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    column-count: 2;
+    column-gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .services-container {
+        column-count: 1;
+    }
+}
+
+
+/* About Hero Section */
+.about-hero {
+    height: 300px;
+    background: url('../assets/images/sawah.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 40, 80, 0.5);
+    z-index: 1;
+}
+
+.about-hero h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.about-hero {
+    height: 200px;
+}
+
+.about-hero h1 {
+    font-size: 1.8rem;
+}
+
+/* Kartu Layanan */
+.service-card {
+    break-inside: avoid;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: scale(1.03) rotate(0.5deg);
+    animation: shake 0.6s ease-in-out;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+@keyframes shake {
+    0%, 100% { transform: scale(1.03) rotate(0.5deg); }
+    20%, 60% { transform: scale(1.03) rotate(-0.5deg); }
+    40%, 80% { transform: scale(1.03) rotate(0.5deg); }
+}
+
+.icon-wrapper {
+    width: 60px;
+    heigaht: 60px;
+    background: #e6f2ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: #0056b3;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    background: #d4e6f9;
+}
+
+/* Nonaktifkan rotasi otomatis ikon (opsional) */
+.icon-wrapper i {
+    animation: none;
+}
+
+.service-card h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* Footer — Biru */
 .footer {
     background-color: #0056b3;
     color: white;
@@ -356,79 +412,40 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Navbar Mobile */
-    .hamburger {
-        display: block;
+    .navbar {
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+
+    .nav-brand {
+        gap: 8px;
+    }
+
+    .brand-text h1 {
+        font-size: 1rem;
     }
 
     .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .nav-btn {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    .hero-buttons {
         flex-direction: column;
-        background-color: #fff;
-        width: 100%;
-        padding: 20px 0;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        transition: 0.3s;
-        z-index: 99;
+        gap: 12px;
     }
 
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu a {
-        padding: 14px 20px;
-        text-align: center;
-        width: 100%;
-        border-radius: 0;
-    }
-
-    /* Layout */
-    .hero-banner { height: 200px; }
-    .info-section .container {
-        flex-direction: column;
-    }
-    .info-content, .info-image {
-        flex: 1 1 100%;
-        text-align: center;
-    }
-    .info-content h2,
-    .service-column h3 {
-        text-align: center;
-    }
-
-    /* Services */
-    .services-container {
-        padding: 20px 15px;
-        flex-direction: column;
-    }
-    .service-column {
-        flex: 1 1 100%;
-    }
-
-    /* CTA */
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
     .btn-primary,
     .btn-outline {
         width: 100%;
         justify-content: center;
         min-width: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-banner { height: 180px; }
-    .hero-content i { font-size: 30px; }
-    .highlight-box {
-        flex-direction: column;
-        text-align: center;
-    }
-    .highlight-box i {
-        margin: 0 0 10px 0;
     }
 }

@@ -7,22 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-    
-        .about-hero {
-            height: 200px;
-            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.9)), url('https://images.unsplash.com/photo-1500382014825-ffba3742b856?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-
-        .about-hero h1 {
-            font-size: 2.4rem;
-            font-weight: bold;
-        }
-
         .about-content {
             max-width: 1000px;
             margin: 40px auto;
@@ -105,27 +89,35 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .about-hero { height: 160px; }
-            .about-hero h1 { font-size: 1.8rem; }
             .about-content { padding: 0 15px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Navbar Responsif -->
+<!-- Navbar Responsif — Biru -->
     <nav class="navbar">
-        <div class="nav-logo">
-            <span><i class="fas fa-map-marked-alt"></i> Patikraja</span>
+        <div class="nav-brand">
+            <img src="assets/images/logo.png" alt="Logo Patikraja" class="logo">
+            <div class="brand-text">
+                <h1>Peta Wilayah Patikraja</h1>
+                <p>Sistem Informasi Geografi</p>
+            </div>
         </div>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-menu" id="nav-menu">
-            <a href="index.html">BERANDA</a>
-            <a href="desaKedungwuluhLor/index.html">PETA DESA</a>
-            <a href="kecPatikraja/index.html">PETA KECAMATAN</a>
-            <a href="about-me.html">TENTANG SAYA</a>
+        <div class="nav-menu">
+            <button class="nav-btn active">Beranda</button>
+            <div class="dropdown">
+                <button class="nav-btn dropdown-toggle">Peta Kecamatan <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-menu">
+                    <a href="desaKedungwuluhLor/index.html">Kedungwuluh Lor</a>
+                    <a href="#">Gumilir</a>
+                    <a href="#">Karangtalun</a>
+                    <a href="#">Kebonmanis</a>
+                    <a href="#">Mertasinga</a>
+                </div>
+            </div>
+            <button class="nav-btn" onclick="window.location.href='desaKedungwuluhLor/index.html'">Peta Desa</button>
+            <button class="nav-btn" onclick="window.location.href='about-me.html'">Tentang Saya</button>
         </div>
     </nav>
 
