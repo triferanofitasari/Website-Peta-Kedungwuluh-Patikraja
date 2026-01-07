@@ -36,6 +36,117 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Navbar Sidebar Toggle untuk Mobile
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Cek apakah hamburger menu sudah ada, jika belum buat
+    let hamburgerMenu = document.querySelector('.hamburger-menu');
+    if (!hamburgerMenu) {
+        // Buat hamburger menu
+        hamburgerMenu = document.createElement('div');
+        hamburgerMenu.className = 'hamburger-menu';
+        hamburgerMenu.innerHTML = '<span></span><span></span><span></span>';
+        
+        // Tambahkan ke nav-oval-container
+        const navContainer = document.querySelector('.nav-oval-container');
+        if (navContainer) {
+            navContainer.appendChild(hamburgerMenu);
+        }
+    }
+
+    // Cek apakah overlay sudah ada, jika belum buat
+    let sidebarOverlay = document.querySelector('.sidebar-overlay');
+    if (!sidebarOverlay) {
+        sidebarOverlay = document.createElement('div');
+        sidebarOverlay.className = 'sidebar-overlay';
+        document.body.appendChild(sidebarOverlay);
+    }
+
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+
+    // Toggle sidebar saat hamburger diklik
+    hamburgerMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleSidebar();
+    });
+
+    // Tutup sidebar saat overlay diklik
+    sidebarOverlay.addEventListener('click', function() {
+        closeSidebar();
+    });
+
+    // Fungsi toggle sidebar
+    function toggleSidebar() {
+        hamburgerMenu.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        sidebarOverlay.classList.toggle('active');
+        body.classList.toggle('sidebar-open');
+    }
+
+    // Fungsi tutup sidebar
+    function closeSidebar() {
+        hamburgerMenu.classList.remove('active');
+        navMenu.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        body.classList.remove('sidebar-open');
+    }
+
+    // Tutup sidebar saat window di-resize ke desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+            closeSidebar();
+        }
+    });
+
+    // Handle dropdown di sidebar mobile
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        
+        if (toggle) {
+            toggle.addEventListener('click', function(e) {
+                // Hanya aktif di mobile (layar < 992px)
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Tutup dropdown lain
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('open');
+                        }
+                    });
+                    
+                    // Toggle dropdown yang diklik
+                    dropdown.classList.toggle('open');
+                }
+            });
+        }
+    });
+
+    // Tutup sidebar saat link di-klik
+    const navLinks = document.querySelectorAll('.nav-menu a, .nav-btn:not(.dropdown-toggle)');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 992) {
+                closeSidebar();
+            }
+        });
+    });
+
+    // Prevent body scroll saat sidebar terbuka
+    const style = document.createElement('style');
+    style.textContent = `
+        body.sidebar-open {
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(style);
+});
+
     // Tambahkan fungsi ini ke file js/main.js
 
 // Fungsi untuk membuka modal gallery
