@@ -143,8 +143,9 @@
 </head>
 <body>
 
-<!-- Navbar Responsif — Biru -->
-    <nav class="navbar">
+<!-- Navbar oval putih di tengah (semua elemen di dalam satu oval) -->
+<nav class="navbar">
+    <div class="nav-oval-container">
         <div class="nav-brand">
             <img src="assets/images/logo.png" alt="Logo Patikraja" class="logo">
             <div class="brand-text">
@@ -152,22 +153,23 @@
                 <p>Sistem Informasi Geografi</p>
             </div>
         </div>
+
         <div class="nav-menu">
-            <button class="nav-btn" onclick="window.location.href='index.html'">Beranda</button>
+            <button class="nav-btn active">Beranda</button>
             <div class="dropdown">
-                <button class="nav-btn dropdown-toggle">Peta Kecamatan <i class="fas fa-chevron-down"></i></button>
+                <button class="nav-btn dropdown-toggle">Desa <i class="fas fa-chevron-down"></i></button>
                 <div class="dropdown-menu">
-                    <a href="desaKedungwuluhLor/index.html">Kedungwuluh Lor</a>
-                    <a href="#">Gumilir</a>
-                    <a href="#">Karangtalun</a>
-                    <a href="#">Kebonmanis</a>
-                    <a href="#">Mertasinga</a>
+                    <a href="about-kedungwuluh-lor.html">Kedungwuluh Lor</a>
+                    <a href="about-kedungwuluh-kidul.html">Kedungwuluh Kidul</a>
+                    <a href="about-karanganyar.html">Karanganyar</a>
+                    <a href="about-karangendep.html">Karangendep</a>
                 </div>
             </div>
-            <button class="nav-btn" onclick="window.location.href='desaKedungwuluhLor/index.html'">Peta Desa</button>
-            <button class="nav-btn active">Tentang Saya</button>
+            <button class="nav-btn" onclick="window.location.href='kecPatikraja/index.html'">Peta Kecamatan</button>
+            <button class="nav-btn" onclick="window.location.href='about-me.html'">Tentang Saya</button>
         </div>
-    </nav> 
+    </div>
+</nav>
 
     <div class="about-me-content">
 
@@ -219,9 +221,72 @@
 
     </div>
 
-    <footer class="footer">
-        <p>© 2025 Pemerintah Desa Kedungwuluh Lor</p>
-    </footer>
+<!-- FOOTER BARU — Rapi & Clean -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="Logo Patikraja">
+        </div>
 
+        <!-- About Section -->
+        <div class="footer-section">
+            <h3>About</h3>
+            <p>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Jl. Raya Notog, No. 79 Patikraja, Kode Pos 53174</span>
+            </p>
+            <p>
+                <i class="fas fa-phone"></i>
+                <span>(0281) 6844747</span>
+            </p>
+            <p>
+                <i class="fas fa-globe"></i>
+                <span><a href="https://patikrajakec.banyumaskab.go.id" target="_blank">patikrajakec.banyumaskab.go.id</a></span>
+            </p>
+            <p>
+                <i class="fas fa-envelope"></i>
+                <span><a href="mailto:patikraja@banyumaskab.go.id">patikraja@banyumaskab.go.id</a></span>
+            </p>
+        </div>
+
+<!-- Link Section (Center-aligned) -->
+        <div class="footer-section footer-links">
+            <h3>Link</h3>
+            <a href="index.html">Beranda</a>
+            <a href="about-kedungwuluh-lor.html">Kedungwuluh Lor</a>
+            <a href="about-kedungwuluh-kidul.html">Kedungwuluh Kidul</a>
+            <a href="about-karanganyar.html">Karanganyar</a>
+            <a href="about-karangendep.html">Karangendep</a>
+            <a href="kecPatikraja/index.html">Peta Kecamatan</a>
+            <a href="about-me.html">Tentang Saya</a>
+        </div>
+
+        <!-- Media Sosial Section -->
+        <div class="footer-section footer-social">
+            <h3>Media Sosial</h3>
+            <div class="social-media">
+                <a href="https://web.facebook.com/profile.php?id=100064841981212" target="_blank" class="social-icon" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/kecamatanpatikraja/" target="_blank" class="social-icon" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@kecamatanpatikraja" target="_blank" class="social-icon" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>© Copyrights. All rights reserved.</p>
+        <p><strong>WEB KECAMATAN PATIKRAJA</strong></p>
+        <p>Universitas AMIKOM Purwokerto | Version 1.0.0</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

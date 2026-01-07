@@ -1,0 +1,1 @@
+var json_KantorBalaiDesaKaranganyar_2 = {"type":"FeatureCollection","name":"KantorBalaiDesaKaranganyar_2","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"Kantor Balai Desa Karanganyar"},"geometry":{"type":"Point","coordinates":[109.211267661817558,-7.459108491984366]}}]}

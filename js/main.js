@@ -36,3 +36,77 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+    // Tambahkan fungsi ini ke file js/main.js
+
+// Fungsi untuk membuka modal gallery
+function openModal(imageSrc, title, description) {
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    
+    modal.classList.add('active');
+    modalImg.src = imageSrc;
+    modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
+    
+    // Disable body scroll saat modal terbuka
+    document.body.style.overflow = 'hidden';
+}
+
+// Fungsi untuk menutup modal gallery
+function closeModal() {
+    const modal = document.getElementById('galleryModal');
+    modal.classList.remove('active');
+    
+    // Enable body scroll kembali
+    document.body.style.overflow = 'auto';
+}
+
+// Tutup modal dengan tombol ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// Animasi counter untuk statistik (opsional)
+function animateCounter(element, target) {
+    let current = 0;
+    const increment = target / 100;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target.toLocaleString('id-ID');
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current).toLocaleString('id-ID');
+        }
+    }, 20);
+}
+
+// Jalankan animasi counter saat scroll ke section statistik
+const observerOptions = {
+    threshold: 0.5
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statValues = entry.target.querySelectorAll('.stat-value');
+            statValues.forEach(stat => {
+                const value = parseFloat(stat.textContent.replace(/[^\d.]/g, ''));
+                if (!stat.classList.contains('animated')) {
+                    animateCounter(stat, value);
+                    stat.classList.add('animated');
+                }
+            });
+        }
+    });
+}, observerOptions);
+
+// Observe statistics section
+document.addEventListener('DOMContentLoaded', function() {
+    const statsSection = document.querySelector('.statistics-section');
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+});

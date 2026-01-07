@@ -1,0 +1,1 @@
+var json_BalaiDesaKedungwuluhKidul_2 = {"type":"FeatureCollection","name":"BalaiDesaKedungwuluhKidul_2","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Nama":"Kantor Balai Desa Kedungwuluh Kidul"},"geometry":{"type":"Point","coordinates":[109.205950389627915,-7.473059483983252]}}]}
